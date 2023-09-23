@@ -1,0 +1,13 @@
+version: "3"
+services:
+  nodejs:
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: "nodejs"
+    working_dir: "/usr/src"
+    tty: true
+    stdin_open: true #標準入力をコンテナと紐付ける
+    volumes:
+      - ./apps:/usr/src/apps
