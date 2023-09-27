@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+    app:
+        container_name: cpp_contaienr
+        build:
+            context: .
+            dockerfile: Dockerfile
+        environment:
+            - CHOKIDAR_USEPOLLING=true
+        volumes:
+            - type: bind
+              source: ./apps
+              target: /usr/src/apps
+        stdin_open: true #標準入力をコンテナと紐付ける
+        tty: true
+
